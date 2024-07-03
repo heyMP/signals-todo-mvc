@@ -420,13 +420,13 @@ export class TodosMvc extends LitElement {
         if (e.key !== 'Enter') return;
       }
       if (!(e.target instanceof HTMLInputElement)) return;
-      store.todos.update({ ...todo, text: e.target.value});
+      store.todos.update({ ...todo, text: e.target.value });
       this.editingItem = undefined;
     }
 
     const updateCompleted = (e: Event) => {
       if (!(e?.target instanceof HTMLInputElement)) return;
-      store.todos.update({...todo, completed: e.target.checked});
+      store.todos.update({ ...todo, completed: e.target.checked });
     }
 
     const removeTodo = () => {
@@ -434,13 +434,13 @@ export class TodosMvc extends LitElement {
     }
 
     return html`
-      <li class=${classMap({'completed': todo.completed, 'editing': editing})}>
+      <li class=${classMap({ 'completed': todo.completed, 'editing': editing })}>
         <div class="view">
           <input class="toggle" type="checkbox" .checked=${todo.completed} @input=${updateCompleted}>
           <label @dblclick=${startEditing}>${todo.text}</label>
           <button class="destroy" @click=${removeTodo}></button>
         </div>
-        ${editing ? html`<input class="edit" .value=${todo.text} @blur=${updateText} @keydown=${updateText}>`: ''}
+        ${editing ? html`<input class="edit" .value=${todo.text} @blur=${updateText} @keydown=${updateText}>` : ''}
       </li>
     `;
   }
@@ -465,13 +465,13 @@ export class TodosMvc extends LitElement {
                 <span class="todo-count"><strong>${store.todos.value.length}</strong> item left</span>
                 <ul class="filters">
                     <li>
-                        <a href="#/" class=${classMap({selected: store.filter.value === 'all'})}>All</a>
+                        <a href="#/" class=${classMap({ selected: store.filter.value === 'all' })}>All</a>
                     </li>
                     <li>
-                        <a href="#/active" class=${classMap({selected: store.filter.value === 'active'})}}>Active</a>
+                        <a href="#/active" class=${classMap({ selected: store.filter.value === 'active' })}}>Active</a>
                     </li>
                     <li>
-                        <a href="#/completed" class=${classMap({selected: store.filter.value === 'completed'})}}>Completed</a>
+                        <a href="#/completed" class=${classMap({ selected: store.filter.value === 'completed' })}}>Completed</a>
                     </li>
                 </ul>
                 ${store.completedTodos.value.length > 0 ? html`
