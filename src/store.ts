@@ -66,6 +66,7 @@ export class TodosSignal extends Signal.State<Todo[]> {
 
 export const todos = new TodosSignal([]);
 export const filter = new Signal.State<TodoFilter>(getFilter());
+export const activeTodos = new Signal.Computed(() => todos.value.filter(i => !i.completed).length, [todos]);
 export const completedTodos = new Signal.Computed(() => todos.value.filter(i => i.completed), [todos]);
 export const filteredTodos = new Signal.Computed(() => todos.value.filter(i => {
   switch (filter.value) {
