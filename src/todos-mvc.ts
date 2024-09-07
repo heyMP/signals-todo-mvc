@@ -116,7 +116,8 @@ export class TodosMvc extends LitElement {
         </section>
       <footer class="info">
         <p>Double-click to edit a todo</p>
-        <p>Created by the TodoMVC Team</p>
+        <p><a href="https://github.com/heyMP/signals-todo-mvc">Signals Todo MVC</a></p>
+        <p>Created by the <a href="https://github.com/heyMP">heyMP</a> using <a href="https://github.com/heyMP/signals">@heymp/signals</a></p>
         <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
       </footer>
     `
